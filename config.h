@@ -74,7 +74,10 @@ static Key keys[] = {
         { MODKEY,                       XK_q,      spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%") },
         { MODKEY,                       XK_a,      spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
         { MODKEY,                       XK_z,      spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%") },
-        { MODKEY,                       XK_z,      spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%") },
+
+        { MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("control_mpv up") },
+        { MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("control_mpv mute") },
+        { MODKEY|ShiftMask,             XK_z,      spawn,          SHCMD("control_mpv down") },
 
         { MODKEY,                       XK_w,      spawn,          SHCMD("mpc volume +10") },
         { MODKEY,                       XK_s,      spawn,          SHCMD("mpc toggle") },
@@ -83,32 +86,30 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("mpc toggle") },
         { MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("mpc next") },
 
-		
-		
+	{ MODKEY,             		XK_t,      spawn,          SHCMD("tv-channels") },
 	
-
-        { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+        { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-/*	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },*/
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_u,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY,                       XK_comma,  setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_period, setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_minus,  setlayout,      {.v = &layouts[1]} },
+/*	{ MODKEY,                       XK_space,  setlayout,      {0} },*/
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+/*	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },*/
 	{ MODKEY,                       XK_Tab,    shiftview,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Tab,    shiftview,      {.i = -1 } },
 	TAGKEYS(                        XK_1,                      0)
@@ -119,10 +120,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_6,                      5)
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
-	{ MODKEY,             		XK_t,      spawn,          SHCMD("tv-channels") },
-
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_Escape, quit,           {0} },
 };
 
 /* button definitions */
