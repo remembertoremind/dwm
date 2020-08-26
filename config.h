@@ -71,6 +71,9 @@ static const char *termcmd[]  = { "st", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
   /*Sound*/
+        { MODKEY,                       XK_e,      spawn,          SHCMD("light -A 10") },
+        { MODKEY,                       XK_d,      spawn,          SHCMD("light -U 10") },
+	
         { MODKEY,                       XK_q,      spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%") },
         { MODKEY,                       XK_a,      spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
         { MODKEY,                       XK_z,      spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%") },
