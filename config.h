@@ -70,18 +70,21 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-  /*Sound*/
+  /*light*/
         { MODKEY,                       XK_e,      spawn,          SHCMD("light -A 10") },
         { MODKEY,                       XK_d,      spawn,          SHCMD("light -U 10") },
 	
+  /*Sound*/
         { MODKEY,                       XK_q,      spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%") },
         { MODKEY,                       XK_a,      spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
         { MODKEY,                       XK_z,      spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%") },
 
+  /*mpv*/
         { MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("control_mpv up") },
         { MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("control_mpv mute") },
         { MODKEY|ShiftMask,             XK_z,      spawn,          SHCMD("control_mpv down") },
 
+  /*mpc*/
         { MODKEY,                       XK_w,      spawn,          SHCMD("mpc volume +10") },
         { MODKEY,                       XK_s,      spawn,          SHCMD("mpc toggle") },
         { MODKEY,                       XK_x,      spawn,          SHCMD("mpc volume -10") },
@@ -89,8 +92,11 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("mpc toggle") },
         { MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("mpc next") },
 
+  /*Scripts*/
 	{ MODKEY,             		XK_t,      spawn,          SHCMD("tv-channels") },
+	{ MODKEY|ShiftMask,    		XK_Delete, spawn,          SHCMD("slock") },
 	
+  /*Keybindings*/
         { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
