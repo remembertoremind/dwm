@@ -73,6 +73,8 @@ static Key keys[] = {
   /*light*/
         { MODKEY,                       XK_e,      spawn,          SHCMD("light -A 10") },
         { MODKEY,                       XK_d,      spawn,          SHCMD("light -U 10") },
+        { MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("light -S 100") },
+        { MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("light -S 2") },
 	
   /*Sound*/
         { MODKEY,                       XK_q,      spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%") },
@@ -128,8 +130,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
 	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_Escape, quit,           {0} },
 };
 
