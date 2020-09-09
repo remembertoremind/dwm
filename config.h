@@ -96,7 +96,12 @@ static Key keys[] = {
   /*Scripts*/
 	{ MODKEY,             		XK_t,      spawn,          SHCMD("tv-channels") },
 	{ MODKEY|ShiftMask,    		XK_Delete, spawn,          SHCMD("slock") },
-	
+
+  /*Software*/
+	{ MODKEY,            		XK_m,      spawn,          SHCMD("st -c Neomutt -e neomutt") },
+	{ MODKEY|ShiftMask,   		XK_n,      spawn,          SHCMD("st -c Newsboat -e newsboat") },
+	{ MODKEY,            		XK_n,      spawn,          SHCMD("st -c Ncmpcpp -e ncmpcpp") },
+	{ MODKEY,            		XK_r,      spawn,          SHCMD("st -c nnn -e nnn") },
   /*Keybindings*/
         { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
