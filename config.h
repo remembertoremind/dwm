@@ -65,7 +65,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+/*static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };*/
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-b", "-l", "15", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
@@ -97,7 +98,12 @@ static Key keys[] = {
   /*Scripts*/
 	{ MODKEY,             		XK_t,      spawn,          SHCMD("tv-channels") },
 	{ MODKEY|ShiftMask,    		XK_Delete, spawn,          SHCMD("slock") },
-	
+
+  /*Software*/
+	{ MODKEY,            		XK_m,      spawn,          SHCMD("st -c Neomutt -e neomutt") },
+	{ MODKEY|ShiftMask,   		XK_n,      spawn,          SHCMD("st -c Newsboat -e newsboat") },
+	{ MODKEY,            		XK_n,      spawn,          SHCMD("st -c Ncmpcpp -e ncmpcpp") },
+	{ MODKEY,            		XK_r,      spawn,          SHCMD("st -c nnn -e nnn") },
   /*Keybindings*/
         { MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
